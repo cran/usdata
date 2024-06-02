@@ -37,9 +37,9 @@
 #' }
 #' @source Census Quick Facts (no longer available as of 2020),
 #' InfoChimps (also no longer available as of 2020),
-#' \href{https://www-fars.nhtsa.dot.gov/Main/index.aspx}{National Highway Traffic Safety Administration},
+#' [National Highway Traffic Safety Administration](https://www-fars.nhtsa.dot.gov/Main/index.aspx)
 #' ({\code{tr_deaths}, \code{tr_deaths_no_alc}}),
-#' \href{https://www.bls.gov/web/laus/laumstrk.htm}{Bureau of Labor Statistics}
+#' [Bureau of Labor Statistics](https://www.bls.gov/web/laus/laumstrk.htm)
 #' (\code{unempl}).
 #' @keywords datasets state United States crime energy
 #' @examples
@@ -48,11 +48,11 @@
 #' library(dplyr)
 #' library(maps)
 #'
-#' states_selected <- state_stats %>%
-#'   mutate(region = tolower(state)) %>%
+#' states_selected <- state_stats |>
+#'   mutate(region = tolower(state)) |>
 #'   select(region, unempl, murder, nuclear)
 #'
-#' states_map <- map_data("state") %>%
+#' states_map <- map_data("state") |>
 #'   inner_join(states_selected)
 #'
 #' # Unemployment map
@@ -63,8 +63,8 @@
 #'   labs(x = "", y = "", fill = "Unemployment\n(%)")
 #'
 #' # Murder rate map
-#' states_map %>%
-#'   filter(region != "district of columbia") %>%
+#' states_map |>
+#'   filter(region != "district of columbia") |>
 #'   ggplot(aes(map_id = region)) +
 #'   geom_map(aes(fill = murder), map = states_map) +
 #'   expand_limits(x = states_map$long, y = states_map$lat) +
@@ -77,6 +77,4 @@
 #'   expand_limits(x = states_map$long, y = states_map$lat) +
 #'   scale_fill_viridis_c() +
 #'   labs(x = "", y = "", fill = "Nuclear energy\n(%)")
-#'
-#'
 "state_stats"

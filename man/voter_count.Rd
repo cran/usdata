@@ -17,7 +17,7 @@ A data frame with 936 rows and 7 variables.
 }
 }
 \source{
-\href{http://www.electproject.org/home/voter-turnout/voter-turnout-data}{United States Election Project}
+\href{https://www.electproject.org/election-data/voter-turnout-data}{United States Election Project}
 }
 \usage{
 voter_count
@@ -37,6 +37,5 @@ ggplot(voter_count, aes(x = percent_highest_office, y = percent_total_ballots_co
     x = "Highest Office",
     y = "Total Ballots"
   )
-
 }
 \keyword{datasets}

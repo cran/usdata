@@ -219,15 +219,17 @@
 #' library(dplyr)
 #' library(ggplot2)
 #'
-#' county_complete %>%
+#' county_complete |>
 #'   mutate(
 #'     pop_change = 100 * ((pop2017 / pop2013) - 1),
 #'     metro_area = if_else(metro_2013 == 1, TRUE, FALSE)
-#'     ) %>%
-#'   ggplot(aes(x = poverty_2016,
-#'              y = pop_change,
-#'              color = metro_area,
-#'              size = sqrt(pop2017) / 1e3)) +
+#'   ) |>
+#'   ggplot(aes(
+#'     x = poverty_2016,
+#'     y = pop_change,
+#'     color = metro_area,
+#'     size = sqrt(pop2017) / 1e3
+#'   )) +
 #'   geom_point(alpha = 0.5) +
 #'   scale_color_discrete(na.translate = FALSE) +
 #'   guides(size = FALSE) +
@@ -239,30 +241,32 @@
 #'   )
 #'
 #' # Counties with high population change
-#' county_complete %>%
-#'   mutate(pop_change = 100 * ((pop2017 / pop2013) - 1)) %>%
-#'   filter(pop_change < -10 | pop_change > 25) %>%
+#' county_complete |>
+#'   mutate(pop_change = 100 * ((pop2017 / pop2013) - 1)) |>
+#'   filter(pop_change < -10 | pop_change > 25) |>
 #'   select(state, name, fips, pop_change)
 #'
 #' # Population by metro area
-#' county_complete %>%
-#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) %>%
-#'   filter(!is.na(metro_area)) %>%
+#' county_complete |>
+#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) |>
+#'   filter(!is.na(metro_area)) |>
 #'   ggplot(aes(x = metro_area, y = log(pop2017))) +
 #'   geom_violin() +
 #'   labs(
 #'     x = "Metro area",
 #'     y = "Log of population in 2017",
 #'     title = "Population by metro area"
-#'     )
+#'   )
 #'
 #' # Poverty and median household income
-#' county_complete %>%
-#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) %>%
-#'   ggplot(aes(x = poverty_2016,
-#'              y = median_household_income_2016,
-#'              color = metro_area,
-#'              size = sqrt(pop2017) / 1e3)) +
+#' county_complete |>
+#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) |>
+#'   ggplot(aes(
+#'     x = poverty_2016,
+#'     y = median_household_income_2016,
+#'     color = metro_area,
+#'     size = sqrt(pop2017) / 1e3
+#'   )) +
 #'   geom_point(alpha = 0.5) +
 #'   scale_color_discrete(na.translate = FALSE) +
 #'   guides(size = FALSE) +
@@ -274,12 +278,14 @@
 #'   )
 #'
 #' # Unemployment rate and poverty
-#' county_complete %>%
-#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) %>%
-#'   ggplot(aes(x = unemployment_rate_2017,
-#'              y = poverty_2016,
-#'              color = metro_area,
-#'              size = sqrt(pop2017) / 1e3)) +
+#' county_complete |>
+#'   mutate(metro_area = if_else(metro_2013 == 1, TRUE, FALSE)) |>
+#'   ggplot(aes(
+#'     x = unemployment_rate_2017,
+#'     y = poverty_2016,
+#'     color = metro_area,
+#'     size = sqrt(pop2017) / 1e3
+#'   )) +
 #'   geom_point(alpha = 0.5) +
 #'   scale_color_discrete(na.translate = FALSE) +
 #'   guides(size = FALSE) +

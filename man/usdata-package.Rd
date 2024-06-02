@@ -6,12 +6,15 @@
 \alias{usdata-package}
 \title{usdata: Data on the States and Counties of the United States}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Demographic data on the United States at the county and state levels spanning multiple years.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/OpenIntroStat/usdata}
+  \item \url{https://openintrostat.github.io/usdata/}
   \item Report bugs at \url{https://github.com/OpenIntroStat/usdata/issues}
 }
 
